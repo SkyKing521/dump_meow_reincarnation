@@ -28,4 +28,10 @@ uvicorn main:app --reload
 
 # Alternatively, to specify host and port (e.g., 0.0.0.0:8000)
 # uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+To run the frontend development server:
+
+```bash
+npm start
 ``` 
