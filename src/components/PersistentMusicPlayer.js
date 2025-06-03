@@ -14,6 +14,7 @@ import Draggable from 'react-draggable';
 import playIcon from '../icons/icons8-play-в-круге-50.png';
 import pauseIcon from '../icons/icons8-стой-50.png';
 import musicIcon from '../icons/logo.png';
+import volumeIcon from '../icons/icons8-мегафон-24.png';
 import closeIcon from '../icons/eye_closed.png';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import stopIcon from '../icons/eye_closed.png';     
@@ -35,6 +36,24 @@ const PlayerContainer = styled(Paper)(({ theme }) => ({
         boxShadow: theme.shadows[6],
     },
 }));
+
+const SkipNextSVG = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="8,5 16,12 8,19" fill="#ff0aca" />
+    </svg>
+  );
+  const SkipPrevSVG = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="16,5 8,12 16,19" fill="#ff0aca" />
+    </svg>
+  );
+  
+  const VolumeUpSVG = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="3,9 9,9 13,5 13,19 9,15 3,15" fill="#ff0aca" />
+      <path d="M16 7C17.6569 8.65685 17.6569 11.3431 16 13" stroke="#ff0aca" strokeWidth="2" fill="none" />
+    </svg>
+  );
 
 const DragHandle = styled(DragIndicatorIcon)(({ theme }) => ({
     cursor: 'move',
@@ -80,25 +99,6 @@ const formatTime = (ms) => {
     const seconds = totalSeconds % 60;
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 };
-
-// SVG компоненты для стрелок
-const SkipNextSVG = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="8,5 16,12 8,19" fill="#ff0aca" />
-  </svg>
-);
-const SkipPrevSVG = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="16,5 8,12 16,19" fill="#ff0aca" />
-  </svg>
-);
-
-const VolumeUpSVG = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="3,9 9,9 13,5 13,19 9,15 3,15" fill="#ff0aca" />
-    <path d="M16 7C17.6569 8.65685 17.6569 11.3431 16 13" stroke="#ff0aca" strokeWidth="2" fill="none" />
-  </svg>
-);
 
 const PersistentMusicPlayer = ({ channelId }) => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -379,7 +379,7 @@ const PersistentMusicPlayer = ({ channelId }) => {
                                     </IconButton>
                                 </Box>
                                 <Box sx={{ ml: 2, display: 'flex', alignItems: 'center' }}>
-                                    <img src={VolumeUpSVG} alt="volume_up" style={{ width: 24, height: 24 }} />
+                                    <img src={volumeIcon} alt="volume_up" style={{ width: 24, height: 24 }} />
                                     <Slider
                                         value={playerRef.current ? playerRef.current.volume * 100 : 100}
                                         onChange={handleVolumeChange}

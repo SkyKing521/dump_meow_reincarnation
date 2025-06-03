@@ -70,6 +70,7 @@ import linkIcon from '../icons/link.png';
 import savedIcon from '../icons/saved.png';
 import searchIcon from '../icons/search.png';
 import avatar1 from '../icons/avatar1.png';
+import sendIcon from '../icons/icons8-sent-30.png';
 // Import new icons
 import editIconNew from '../icons/icons8-редактировать-48.png';
 import deleteIconNew from '../icons/icons8-мусор-24.png';
@@ -994,7 +995,7 @@ const ServerView = ({ onChannelSelect }) => {
                                                     }
                                                 }}
                                             >
-                                                <img src={fileIcon} alt="send" style={{ width: 24, height: 24 }} />
+                                                <img src={sendIcon} alt="send" style={{ width: 24, height: 24 }} />
                                             </IconButton>
                                         </Grid>
                                     </Grid>
